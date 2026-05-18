@@ -1,12 +1,16 @@
-
+#[allow(unused_variables)]
 fn main() {
-    let (x,y);
-    // destructing
-    (x,..) = (3,4);
-    [..,y] = [1,2];
 
-    assert_eq!([x,y],[3,2]);
-    println!("Success {} {}",x,y);
+    let mut sum:i32 = 0;
+
+    for i in -3..2 {
+        sum += i;
+    }
+
+    assert!(sum == -5);
+
+    for c in 'A'..='z' {
+        println!("{}", c);
+    }
 }
-
 
