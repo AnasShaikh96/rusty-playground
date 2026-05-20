@@ -1,19 +1,16 @@
+
+// use std::mem::size_of_val;
+
 #[allow(unused_variables)]
 fn main() {
-   
-    assert!(1_u32 + 2 == 3);
+    let _v : () = ();
 
-    assert!(1i32 - 2 == -1);
-    assert!(1i8 - 2 == -1);
-
-
-    assert!(3*50 == 150);
-
-    assert!(9.6 as f32 / 3.2 as f32 == 3.0 as f32);
-
-    assert!(24 % 5 == 4);
-
-
+    let v:(i32,i32) = (3,4);
+    assert_eq!(_v, implicitly_ret_unit());
     println!("Success")
 }
 
+
+fn implicitly_ret_unit(){
+    println!("I will return ()");
+}
