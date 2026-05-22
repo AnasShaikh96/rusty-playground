@@ -2,13 +2,15 @@
 
 #[allow(unused_variables)]
 fn main() {
-    never_return();
-    println!("Success",)
+    let mut s1 = String::from("hello");
+    let  s2 = s1;    
+
+    s1 = s2.clone()
+
+    println!("Shouldnt run {}", s2)
 }
 
-fn never_return() -> ! {
-    todo!();
-}
+
 
 
 
