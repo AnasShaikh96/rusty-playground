@@ -2,13 +2,29 @@
 
 #[allow(unused_variables)]
 fn main() {
-    let mut s1 = String::from("hello");
-    let  s2 = s1;    
 
-    s1 = s2.clone()
+    let s = String::from("Hello");
+    take_ownership(&s);
+    println!("Success s! {}", s);
 
-    println!("Shouldnt run {}", s2)
+
+    let x = 5;
+    makes_copy(x);
+    println!("Success! {}", x)
 }
+
+fn take_ownership(s: &String) -> String {
+    println!("Printed param {}", s);
+    s.to_string()
+}
+
+
+fn makes_copy(x:i32){
+    println!("Copy wala fn {}", x)
+}
+
+
+
 
 
 
