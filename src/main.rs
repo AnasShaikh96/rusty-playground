@@ -2,16 +2,13 @@
 
 #[allow(unused_variables)]
 fn main() {
-    let s1 = String::from("Hello, World");
-    let s2 = take_ownership(s1);
+    let s = String::from("hello, ");
+    let mut s1 = s;
+    s1.push_str("world");
 
-    println!("{}", s2);    
+    println!("{}",s1)
 }
 
-fn take_ownership(s:String) ->String {
-    println!("{}",s);
-    s
-}
 
 
 
