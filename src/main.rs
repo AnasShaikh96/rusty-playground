@@ -2,11 +2,22 @@
 
 #[allow(unused_variables)]
 fn main() {
-    let s = String::from("hello, ");
-    let mut s1 = s;
-    s1.push_str("world");
+    #[derive(Debug)]
+    struct Person {
+        name: String,
+        age : Box<u8>,
+    }
 
-    println!("{}",s1)
+    let person : Person = Person {
+        name: String::from("Alice"),
+        age: Box::new(20)
+    };
+
+    let Person {name, ref age} = person;
+
+    println!("person age is {}", person.age);
+    println!("person name is {}", name);
+
 }
 
 
