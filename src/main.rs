@@ -2,23 +2,25 @@
 
 #[allow(unused_variables)]
 fn main() {
-    #[derive(Debug)]
-    struct Person {
-        name: String,
-        age : Box<u8>,
-    }
+    let c = '%';
 
-    let person : Person = Person {
-        name: String::from("Alice"),
-        age: Box::new(20)
-    };
+    let r1 = &c;
+    let ref r2 = c;
 
-    let Person {name, ref age} = person;
+    assert_eq!(*r1,*r2);
+    assert_eq!(get_address(&r1),get_address(&r2));
 
-    println!("person age is {}", person.age);
-    println!("person name is {}", name);
-
+    println!("Success")
 }
+
+fn get_address(c: &char) -> String{
+    format!("{:p}",c)
+}
+
+
+
+
+
 
 
 
