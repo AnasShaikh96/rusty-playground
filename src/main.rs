@@ -2,12 +2,13 @@
 
 #[allow(unused_variables)]
 fn main() {
-    let list : [i32;100] =[1;100];
-
-    assert!(list[0] == 1);
-    assert!(list.len() == 100);
+    let a  = [1,2,3];
+    let s = "Hello, world";
+    let s1 = &a[0..2];
+    let s2 = &s[2..6];
     
-    println!("Success")
+    println!("Success {:?}",s2)
+
 }
 
 
