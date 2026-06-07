@@ -2,42 +2,19 @@
 
 #[allow(unused_variables)]
 fn main() {
-    let calculate = basic_calc(&[2,3],&"div");
-    println!("Answer: {}",calculate)  
+    let largest = find_largest_num(&[6,1,330,4,9]);
+    println!("Answer: {}",largest)  
 }
 
 
-fn basic_calc(nums: &[i32;2], op:&str) -> i32 {
-    let mut output = 0;
-    match op {
-        "add" => {
-            for n in nums {
-                output += n;
-
-            }
-        },
-        "sub" => {
-            for n in nums {
-                output -= n;
-
-            }
-        },
-        "mul" => {
-            output += 1;
-            for n in nums {
-                output *= n;
-            }
-        },
-        "div" => {
-            output += 1;
-            for n in nums {
-              return  output % n
-            }
+fn find_largest_num(arr: &[u32;5]) -> u32{
+    let mut num = 0;
+    for n in arr {
+        if num < *n {
+            num = *n;
         }
-        &_ => println!("nothing happened")
     }
-   println!("{}",output);
-    output
+    num
 }
 
 
