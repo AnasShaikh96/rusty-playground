@@ -2,10 +2,17 @@
 
 #[allow(unused_variables)]
 fn main() {
-    let t: (u8,u16,i64,str,String) = (1u8,2u16,3i64,"hello",String::from("World"));
-    println!("Success")
+    let (x,y) = sum_multiply((2,3));
+    assert_eq!(x, 5);
+    assert_eq!(y, 6);
+
+
+    println!("Success")    
 }
 
+fn sum_multiply(nums: (i32,i32)) -> (i32,i32) {
+    (nums.0 + nums.1, nums.0 * nums.1) 
+}
 
 
 
