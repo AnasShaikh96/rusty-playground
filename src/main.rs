@@ -2,22 +2,17 @@
 
 #[allow(unused_variables)]
 fn main() {
-    let (x,y) = sum_multiply((2,3));
-    assert_eq!(x, 5);
-    assert_eq!(y, 6);
+    let url: &str = "https://google.com";
+    let domain = slice_domain(&url);
 
-
-    println!("Success")    
+    println!("Success {}", domain)
 }
 
-fn sum_multiply(nums: (i32,i32)) -> (i32,i32) {
-    (nums.0 + nums.1, nums.0 * nums.1) 
+fn slice_domain(url: &str) -> &str {
+    let len = url.len();
+    let item = &url[8..len];
+    item
 }
-
-
-
-
-
 
 
 
