@@ -2,17 +2,24 @@
 
 #[allow(unused_variables)]
 fn main() {
-    let url: &str = "https://google.com";
-    let domain = slice_domain(&url);
+    struct User {
+        name: String,
+        number: u64,
+        age: u16,
+        email: String
+    };
 
-    println!("Success {}", domain)
+    let user = User {
+        name: "John Doe",
+        number: 123456789,
+        age: 60,
+        email: "some@admin.com"
+    };
+
+    println!("Success {}", user)
 }
 
-fn slice_domain(url: &str) -> &str {
-    let len = url.len();
-    let item = &url[8..len];
-    item
-}
+
 
 
 
