@@ -7,16 +7,16 @@ fn main() {
         number: u64,
         age: u16,
         email: String
-    };
+    }
 
     let user = User {
-        name: "John Doe",
+        name: String::from("John Doe"),
         number: 123456789,
         age: 60,
-        email: "some@admin.com"
+        email: String::from("some@admin.com")
     };
 
-    println!("Success {}", user)
+    println!("Success {}", user.name)
 }
 
 
