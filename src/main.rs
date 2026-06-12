@@ -1,28 +1,24 @@
 // use std::mem::size_of_val;
-
 #[allow(unused_variables)]
-struct User {
-        name: String,
-        number: u64,
-        age: u16,
-        email: String
-    }
-fn main() {
-    let user1 = User {
-        name: String::from("John Doe"),
-        number: 123456789,
-        age: 60,
-        email: String::from("some@admin.com")
-    };
 
-    let user2 = User {
-        email:String::from("someuser@admin.com"),
-        ..user1
-    };
 
-    println!("Success {}", user2.email);
+struct Color(i32,i32,i32);
+struct Point(i32,i32,i32);
+
+fn main(){
+    let v:Point = Point(0,127,255);
+    check_color(v);
+
+    println!("Success");
 }
 
+fn check_color(p:Point){
+    let Point(x,_y,_z) = p;
+
+    assert_eq!(x,0);
+    assert_eq!(p.1,127);
+    assert_eq!(p.2,255);
+}
 
 
 
