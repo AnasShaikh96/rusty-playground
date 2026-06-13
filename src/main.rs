@@ -1,24 +1,20 @@
 // use std::mem::size_of_val;
 #[allow(unused_variables)]
 
-
-struct Color(i32,i32,i32);
-struct Point(i32,i32,i32);
+enum Number {
+    Zero = 0,
+    One = 1,
+    Two = 2
+}
 
 fn main(){
-    let v:Point = Point(0,127,255);
-    check_color(v);
+    assert_eq!(Number::One as u8, 1);
+    assert_eq!(Number::Two as u8, 2);
+    assert_eq!(Number::Zero as u8, 0);
 
-    println!("Success");
+    println!("Succes")
 }
 
-fn check_color(p:Point){
-    let Point(x,_y,_z) = p;
-
-    assert_eq!(x,0);
-    assert_eq!(p.1,127);
-    assert_eq!(p.2,255);
-}
 
 
 
