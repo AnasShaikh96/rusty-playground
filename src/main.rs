@@ -1,18 +1,17 @@
 // use std::mem::size_of_val;
 #[allow(unused_variables)]
-
-enum Number {
-    Zero = 0,
-    One = 1,
-    Two = 2
+#[derive(Debug)]
+enum Message {
+    Quit,
+    Move { x: i32, y:i32},
+    Write(String),
+    ChangeColor(i32,i32,i32),
 }
 
 fn main(){
-    assert_eq!(Number::One as u8, 1);
-    assert_eq!(Number::Two as u8, 2);
-    assert_eq!(Number::Zero as u8, 0);
-
-    println!("Succes")
+    let msg1 = Message::Move{x:1,y:2};
+    let msg2:Message = Message::Write(String::from("Hello World"));
+    println!("Succes {:?}", msg2)
 }
 
 
