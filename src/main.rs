@@ -9,9 +9,22 @@ enum Message {
 }
 
 fn main(){
-    let msg1 = Message::Move{x:1,y:2};
-    let msg2:Message = Message::Write(String::from("Hello World"));
-    println!("Succes {:?}", msg2)
+
+    let msgs: [Message;3] = [
+        Message::Quit,
+        Message::Move{x:1,y:3},
+        Message::ChangeColor(255,255,0)
+    ];
+
+    for msg in msgs {
+        show_message(msg)
+    }
+
+    println!("Success")
+}
+
+fn show_message(msg:Message) {
+    println!("{:?}",msg)
 }
 
 
