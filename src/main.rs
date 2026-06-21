@@ -2,12 +2,15 @@ use svg::Document;
 use svg::node::element::path::Data;
 use svg::node::element::Path;
 use svg::node::element::Circle;
+use svg::node::element::Rectangle;
+use svg::node::element::Animate;
 
 #[allow(unused_variables)]
 
 fn main(){
   let _ = draw_circle();
   let _ = draw_path();
+  let _ = draw_animate();
 }
 
 fn draw_circle() -> anyhow::Result<()> {
@@ -44,5 +47,38 @@ fn draw_path() -> anyhow::Result<()> {
         .add(path);
 
     svg::save("quad.svg", &svg_document)?;
+    Ok(())
+}
+
+
+ fn draw_animate() -> anyhow::Result<()> {
+    let rect = Rectangle::new()
+        .set("x", "0")
+        .set("y", "0")
+        .set("width", "300")
+        .set("height", "100")
+        .set("stroke", "red");
+
+    let animate = Animate::new()
+        .set("attributeName", "cx")
+        .set("from", "0")
+        .set("to", "500")
+        .set("dur", "5s")
+        .set("repeatCount", "indefinite");
+
+    let circle = Circle::new()
+        .set("cx", "0")
+        .set("cy", "50")
+        .set("r", "15")
+        .set("fill", "blue")
+        .add(animate);
+
+    let svg_document = Document::new()
+        .set("width", "300")
+        .set("height", "100")
+        .add(rect)
+        .add(circle);
+
+    svg::save("animate.svg", &svg_document)?;
     Ok(())
 }
