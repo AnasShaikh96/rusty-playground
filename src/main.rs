@@ -82,3 +82,38 @@ fn draw_path() -> anyhow::Result<()> {
     svg::save("animate.svg", &svg_document)?;
     Ok(())
 }
+
+fn draw_gradient() -> anyhow::Result<()> {
+    let gradient_id = "Gradient";
+    let linear_gradient = LinearGradient::new()
+        .set("id", gradient_id)
+        .set("x1", "0")
+        .set("x2", "0")
+        .set("y1", "0")
+        .set("y2", "1")
+        .add(Stop::new().set("offset", "0%").set("stop-color", "red"))
+        .add(
+            Stop::new()
+                .set("offset", "50%")
+                .set("stop-color", "yellow")
+                .set("stop-opacity", "0"),
+        )
+        .add(Stop::new().set("offset", "100%").set("stop-color", "blue"));
+
+    let definition = Definitions::new().add(linear_gradient);
+
+    let circle = Circle::new()
+        .set("cx", "150")
+        .set("cy", "100")
+        .set("r", "80")
+        .set("fill", format!("url(#{})", gradient_id));
+
+    let svg_document = Document::new()
+        .set("width", "300")
+        .set("height", "200")
+        .add(circle)
+        .add(definition);
+
+    svg::save("gradient.svg", &svg_document)?;
+    Ok(())
+}
